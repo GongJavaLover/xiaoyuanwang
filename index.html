@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js">	
+</script>
+<script type="text/javascript">
+//	window.onload = function () {
+//		var main_imgs = document.getElementById("main_imgs");
+//		var lis = main_imgs.getElementsByTagName("li");
+//		var sport = document.getElementById("sport");
+//		var a = 0;
+//		console.log(sport.style.left);
+//		function run () {
+//			if (a==6){
+//				a = 0;
+//			}
+//			a++;
+//			var len = -1100*a;
+//			var oldLeft = 0;
+//			var newLeft = parseInt(oldLeft) + len;
+//			sport.style.left = newLeft +"px";
+//		}
+//		setInterval(run,1000);
+//	}
+
+	$(function(){
+		//自动轮播事件
+		var a = 0;
+		function run () {
+			a++;
+			if (a == 7){
+				$("#allimgs").css({'left':'0px'});
+				a=1;
+			}
+			var len = -1100*a;
+			$("#allimgs").stop().animate({"left":len+"px"},300,function(){
+			});
+		}
+		var timer = setInterval(run,3000);
+
+
+		
+		//点击事件
+		$("#main_ul li").click(function(){
+			clearInterval(timer);
+			a = $(this).index();
+			var lef = -1100*a;
+			$("#allimgs").stop().animate({"left":lef+"px"},300,function(){
+				timer = setInterval(run,3000);
+			})
+		})
+
+		
+		//section7轮播
+		var c = 0;
+		function run2(){
+			c++;
+			if (c==115){
+				$("#sec7_imgs").css({'left':'0px'});
+				c=1;
+			}
+			var lefs = -10*c;
+			$("#sec7_imgs").animate({'left':lefs+"px"},100);
+		}
+		var timer2 = setInterval(run2,100);
+		
+		//鼠标移入 移出，左右按钮出现
+		$("#sec7_kj").mouseenter(function(){
+			clearInterval(timer2);
+		})
+		$("#sec7_kj").mouseleave(function(){
+			timer2 = setInterval(run2,100);
+		});
+		
+})
+
+</script>
+<link rel="stylesheet" type="text/css" href="css/xkd.css"/>
+	</head>
+	<body>
+		<header id="header1">
+			<div id="header_bj1">
+				<div id="header_nav">
+					<nav id="header_nav1">
+						<a href="">在校学生</a>
+						<a href="">教职员工</a>
+						<a href="">校友</a>
+						<a href="">访客</a>
+					</nav>
+					<nav id="header_nav2">
+						<a href="" id="jiuban">旧版入口</a>
+						<a href="">服务门户</a>
+						<a href="">OA系统</a>
+						<a href="">English</a>
+					</nav>						
+				</div>
+			</div>
+			<div id="header_bj2">
+				<div id="header_logo">
+					<img src="img/logo.gif" alt="" id="logo1"/>
+					<img src="img/logo2.gif" alt="" id="logo2"/>
+					<input type="text" id="header_ss" value="" placeholder="请输入关键字"/>
+				</div>	
+			</div>
+		</header>
+		<main>
+			<header id="main_header">
+				<nav id="main_nav">
+					<a href="" class="main_header_a">网站首页</a>
+					<a href="" class="main_header_a">学校概况</a>
+					<a href="" class="main_header_a">机构设置</a>
+					<a href="" class="main_header_a">师资队伍</a>
+					<a href="" class="main_header_a">教育教学</a>
+					<a href="" class="main_header_a">科学研究</a>
+					<a href="" class="main_header_a">招生就业</a>
+					<a href="" class="main_header_a">合作交流</a>
+					<a href="" class="main_header_a">诚聘英才</a>
+					<a href="" class="main_header_a">公共服务</a>
+				</nav>
+			</header>
+			<div id="main_lunbo">
+				<div id="sport" style="left: 0;">
+					<div id="main_imgs">
+						<div id="allimgs">
+							<a href=""><img src="img/图1.jpg" alt="" class="ii"/></a>
+							<a href=""><img src="img/图2.jpg" alt="" class="ii"/></a>
+							<a href=""><img src="img/图3.jpg" alt="" class="ii"/></a>
+							<a href=""><img src="img/图4.jpg" alt="" class="ii"/></a>
+							<a href=""><img src="img/图5.jpg" alt="" class="ii"/></a>
+							<a href=""><img src="img/图6.jpg" alt="" class="ii"/></a>
+							<a href=""><img src="img/图1.jpg" alt="" class="ii"/></a>
+						</div>					
+						<ul id="main_ul">
+							<li>网络安全</li>
+							<li>青春</li>
+							<li>乒乓球赛</li>
+							<li>朝露待日晞</li>
+							<li>立夏</li>
+							<li>青春毕业季</li>
+						</ul>
+					</div>		
+				</div>	
+
+			</div>			
+			<div id="sections">
+				<section id="section1">
+					<div class="section_top">
+						<h3>科大要闻</h3>
+						<img src="img/more.gif" alt="" />	
+					</div>	
+					<div id="figures">
+						<figure>
+							<img src="img/1.jpg" alt="" />
+							<h4><a href="">学校党委中心组（扩大）专题学习传达省第十…</h4></a>
+							<p><a href="">5月31日，学校在办公楼302会议室召开党委中心组（扩大）学习会，专题学习传达省第十一次党…</a></p>
+							<time>2017-05-31</time>
+						</figure>
+						<figure>
+							<img src="img/2.jpg" alt="" />
+							<h4><a href="">充分发挥人才科技优势   服务军民融合发展…</a></h4>
+							<p><a href="">充分发挥人才科技优势   服务军民融合发展战略四川省第十一次党代会代表、校党委书记庄天慧四…</a></p>
+							<time>2017-05-28</time>
+						</figure>
+						<figure>
+							<img src="img/3.jpg" alt="" />
+							<h4><a href="">西南科大学子突破BIM大赛重围“一名”惊…</a></h4>
+							<p><a href="">据悉，在刚刚结束的“2017全国高等院校建筑软件技能认证大赛-BIM算量大赛”中，我校32名来…</a></p>
+							<time>2017-05-26</time>
+						</figure>						
+					</div>
+
+				</section>
+				<section id="section2">
+					<div class="section_top">
+						<h3>综合新闻</h3>
+						<img src="img/more.gif" alt="" />	
+					</div>	
+					<ul>
+						<li><p><a href="">我校2017年国家公派出国留学人员行…</a><span>06-02</span></p></li>
+						<li><p><a href="">西南科大附小、幼儿园欢乐庆“六一…</a><span>06-01</span></p></li>
+						<li><p><a href="">我校四川省非金属矿粉体改性与高质…</a><span>06-01</span></p></li>
+						<li><p><a href="">我校19名师生获国家留学基金管理委…</a><span>06-01</span></p></li>
+						<li><p><a href="">我校机器人小组荣获全国机器人大赛…</a><span>05-31</span></p></li>
+						<li><p><a href="">中科院“百人计划”汪松虎研究员来…</a><span>05-31</span></p></li>
+						<li><p><a href="">斩获6金6银6铜！我校跆拳道代表队…</a><span>05-31</span></p></li>
+						<li><p><a href="">我校代表队勇夺第六届绵阳端午龙舟…</a><span>05-31</span></p></li>
+					</ul>
+				</section>
+				<section id="section3">
+					<div class="section_top">
+						<h3>媒体关注</h3>
+						<img src="img/more.gif" alt="" />	
+					</div>	
+					<ul>
+						<li><p><a href="">中央电视台报道我校贺新生教授为农…</a><span>06-02</span></p></li>
+						<li><p><a href="">四川在线：西南科大优秀校友张连捐…</a><span>05-19</span></p></li>
+						<li><p><a href="">中共中央统一战线工作部：西南科大…</a><span>05-18</span></p></li>
+						<li><p><a href="">今日头条：赞！绵阳的这个大学生上…</a><span>05-17</span></p></li>
+						<li><p><a href="">人民网等多家媒体报道我校第四届读…</a><span>05-14</span></p></li>
+						<li><p><a href="">中国绵阳新闻网：西南科技大学举办…</a><span>05-08</span></p></li>
+						<li><p><a href="">直播绵阳：高校建造节 竹子搭出梦…</a><span>05-05</span></p></li>
+					</ul>
+				</section>
+				<section id="section4">
+					<div class="section_top">
+						<h3>通知公告</h3>
+						<img src="img/more.gif" alt="" />	
+					</div>	
+					<ul>
+						<li><p><a href="">关于开展本科生网上选课的通知</a><span>05-18</span></p></li>
+						<li><p><a href="">西南科技大学“资源循环利用科学…</a><span>06-01</span></p></li>
+						<li><p><a href="">关于召开学校党委中心组（扩大）…</a><span>05-26</span></p></li>
+						<li><p><a href="">考察对象公示<span>05-22</a></span></p></li>
+						<li><p><a href="">2017年西南科技大学创新实践班…</a><span>05-22</span></p></li>
+						<li><p><a href="">关于通过竞争上岗选拔处级领导干…</a><span>05-18</span></p></li>
+						<li><p><a href="">关于举办第二届西南科技大学体育…</a><span>05-17</span></p></li>
+					</ul>
+				</section>
+				<section id="section5">
+					<div class="section_top">
+						<h3>学术交流</h3>
+						<img src="img/more.gif" alt="" />	
+					</div>					
+					<ul>
+						<li><p><a href="">文学与艺术学院龙山人文讲坛系列…</a><span>05-26</span></p></li>
+						<li><p><a href="">【生命大讲坛】中科院成都生物研…</a><span>05-26</span></p></li>
+						<li><p><a href="">“新体制下军地合力推动军民融合…</a><span>05-23</span></p></li>
+						<li><p><a href="">“军民融合”科技情报服务研讨会…</a><span>05-19</span></p></li>
+						<li><p><a href="">天府人文讲坛——鲁篱教授学术讲座…</a><span>05-19</span></p></li>
+						<li><p><a href="">固体废物处理与资源化教育部重点…</a><span>05-19</span></p></li>
+						<li><p><a href="">【龙山论道】政企关系——理论、现…</a><span>05-18</span></p></li>
+					</ul>
+				</section>
+				<section id="section6">
+					<div class="section_top">
+						<h3>视频新闻</h3>
+						<img src="img/more.gif" alt="" />	
+					</div>
+					<figure>
+						<a href=""><img src="img/news.jpg" alt="" id="news"/></a>
+						<p id="news_p"><a href="">西南科大2017上第十三周校园新闻</a></p>
+					</figure>
+				</section>
+				<section id="section7">
+					<div class="section_top">
+						<h3>专题网站</h3>
+						<img src="img/more.gif" alt="" />	
+					</div>
+					<div id="sec7_kj">
+						<div id="sec7_imgs">
+							<figure>
+								<a href=""><img src="img/11.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">信息公开</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/22.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">服务门户</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/33.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">“双一流建设”</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/44.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">新闻网</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/55.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">“两学一做”专题教育</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/66.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">欢迎报考西南科技大学</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/11.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">信息公开</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/22.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">服务门户</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/33.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">“双一流建设”</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/44.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">新闻网</a></p>
+							</figure>
+							<figure>
+								<a href=""><img src="img/55.jpg" alt="" class="sec_im"/></a>
+								<p><a href="">“两学一做”专题教育</a></p>
+							</figure>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+		<footer>
+			<div id="foo">
+				<nav id="footer_nav">
+					<a href="">校园地图</a>
+					<a href="">办事指南</a>
+					<a href="">共建联合</a>
+					<a href="">精品课程</a>
+					<a href="">邮件系统</a>
+					<a href="">图书馆</a>
+					<a href="">学报</a>
+					<a href="">校报</a>
+					<a href="">校园BBS</a>
+					<a href="">采购信息</a>
+					<a href="">校园一卡通</a>
+					<a href="">教师主页</a>
+				</nav>
+				<div>
+					
+				</div>
+			</div>
+			<div id="banquan">
+				版权所有 ©2016 西南科技大学 | 地址：四川省绵阳市涪城区青龙大道中段59号 | 邮编:621010 | 蜀ICP备13012090号
+			</div>
+		</footer>
+	</body>
+</html>
